@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="life.css">
+
+</head>
+
+<body>
+    <p class="topPadding">THE GAME OF LIFE</p>
+    <p>A small tribute to <a class="link" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">John Conway</a></p>
+    &NonBreakingSpace;
+    <div id="sketch-div"></div>
+    &NonBreakingSpace;
+    <div class="slidecontainer">
+        <p>
+            current speed: <span id="sValue"></span> 
+            1 <input type="range" min="1" max="25" value="10" class="slider" id="speedRange"> 25 
+        </p> 
+        
+    </div>
+    <div class="slidecontainer">
+        <p>
+            cell survival: <span id="fValue"></span>
+            10% <input type="range" step="0.01" min="0.10" max="0.90" value="0.70" class="slider" id="fadeRange"> 90%  
+        </p>
+    </div>
+
+    <script> 
+        var slide = document.getElementById("speedRange");
+        var slideValue = document.getElementById("sValue");
+        slideValue.innerHTML = slide.value;
+        slide.oninput = function() {slideValue.innerHTML = this.value}
+    
+        var fader = document.getElementById("fadeRange");
+        var fadeLabel = document.getElementById("fValue");
+        fadeLabel.innerHTML = (Math.round(fader.value*100))+"%";
+        fader.oninput = function() {fadeLabel.innerHTML = (Math.round(this.value*100))+"%"}
+
+
+    </script>
+</body>
+
+</html>
